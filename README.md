@@ -1,1 +1,1 @@
-# datacollector
+# Streamsets datacollector with added utilities
