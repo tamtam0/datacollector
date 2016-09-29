@@ -70,7 +70,7 @@ RUN sed -i 's|\(http.authentication=\).*|\1none|' "${SDC_CONF}/sdc.properties"
 RUN chown -R "${SDC_USER}:${SDC_USER}" "${SDC_CONF}" "${SDC_DATA}" "${SDC_LOG}" "${SDC_RESOURCES}"
  
 # Install desired stage libs
-RUN /opt/streamsets-datacollector/bin/streamsets stagelibs -install=streamsets-datacollector-cdh_5_7-cluster-cdh_kafka_2_0-lib, streamsets-datacollector-cdh_5_7-lib,streamsets-datacollector-cdh_kafka_2_0-lib
+RUN /opt/streamsets-datacollector/bin/streamsets stagelibs -install=streamsets-datacollector-cdh_5_7-cluster-cdh_kafka_2_0-lib,streamsets-datacollector-cdh_5_7-lib,streamsets-datacollector-cdh_kafka_2_0-lib
  
 USER ${SDC_USER}
 EXPOSE 18630
