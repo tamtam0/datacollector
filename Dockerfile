@@ -69,7 +69,7 @@ RUN sed -i 's|\(http.authentication=\).*|\1none|' "${SDC_CONF}/sdc.properties"
 # Setup filesystem permissions
 RUN chown -R "${SDC_USER}:${SDC_USER}" "${SDC_CONF}" "${SDC_DATA}" "${SDC_LOG}" "${SDC_RESOURCES}"
 
-RUN /opt/streamsets-datacollector/bin/streamsets stagelibs -install=streamsets-datacollector-apache-solr_6_1_0-lib,streamsets-datacollector-aws-lib,streamsets-datacollector-cdh_5_7-cluster-cdh_kafka_2_0-lib,streamsets-datacollector-cdh_5_7-lib,streamsets-datacollector-cdh_kafka_1_3-lib,streamsets-datacollector-cdh_kafka_2_0-lib,streamsets-datacollector-groovy_2_4-lib,streamsets-datacollector-jdbc-lib,streamsets-datacollector-jms-lib,streamsets-datacollector-jython_2_7-lib,streamsets-datacollector-omniture-lib,streamsets-datacollector-stats-lib
+RUN /opt/streamsets-datacollector/bin/streamsets stagelibs -install=streamsets-datacollector-apache-solr_6_1_0-lib,streamsets-datacollector-aws-lib,streamsets-datacollector-cdh_5_7-cluster-cdh_kafka_2_0-lib,streamsets-datacollector-cdh_5_7-lib,streamsets-datacollector-cdh_kafka_1_3-lib,streamsets-datacollector-cdh_kafka_2_0-lib,streamsets-datacollector-jdbc-lib,streamsets-datacollector-jms-lib,streamsets-datacollector-omniture-lib
 
 USER ${SDC_USER}
 EXPOSE 18630
