@@ -48,7 +48,7 @@ ENV SDC_VERSION ${SDC_VERSION:-2.0.0.0}
 
 # Download the SDC tarball, Extract tarball and cleanup
 RUN cd /tmp && \
-  curl -O -L "https://archives.streamsets.com/datacollector/${SDC_VERSION}/tarball/streamsets-datacollector-core-${SDC_VERSION}.tgz" && \
+  curl -O -L "https://archives.streamsets.com/datacollector/${SDC_VERSION}/tarball/streamsets-datacollector-all-${SDC_VERSION}.tgz" && \
   tar xzf "/tmp/streamsets-datacollector-core-${SDC_VERSION}.tgz" -C /opt/ && \
   rm -rf "/tmp/streamsets-datacollector-core-${SDC_VERSION}.tgz" && \
   mv "/opt/streamsets-datacollector-${SDC_VERSION}" "${SDC_DIST}"
@@ -69,7 +69,7 @@ RUN sed -i 's|\(http.authentication=\).*|\1none|' "${SDC_CONF}/sdc.properties"
 # Setup filesystem permissions
 RUN chown -R "${SDC_USER}:${SDC_USER}" "${SDC_CONF}" "${SDC_DATA}" "${SDC_LOG}" "${SDC_RESOURCES}"
 
-RUN /opt/streamsets-datacollector/bin/streamsets stagelibs -install=streamsets-datacollector-apache-solr_6_1_0-lib,streamsets-datacollector-aws-lib,streamsets-datacollector-basic-lib,streamsets-datacollector-cassandra_3-lib,streamsets-datacollector-cdh_5_7-cluster-cdh_kafka_2_0-lib,streamsets-datacollector-cdh_5_7-lib,streamsets-datacollector-cdh_kafka_1_3-lib,streamsets-datacollector-cdh_kafka_2_0-lib,streamsets-datacollector-groovy_2_4-lib,streamsets-datacollector-jdbc-lib,streamsets-datacollector-jms-lib,streamsets-datacollector-jython_2_7-lib,streamsets-datacollector-omniture-lib,streamsets-datacollector-stats-lib
+#RUN /opt/streamsets-datacollector/bin/streamsets stagelibs -install=streamsets-datacollector-apache-solr_6_1_0-lib,streamsets-datacollector-aws-lib,streamsets-datacollector-basic-lib,streamsets-datacollector-cassandra_3-lib,streamsets-datacollector-cdh_5_7-cluster-cdh_kafka_2_0-lib,streamsets-datacollector-cdh_5_7-lib,streamsets-datacollector-cdh_kafka_1_3-lib,streamsets-datacollector-cdh_kafka_2_0-lib,streamsets-datacollector-groovy_2_4-lib,streamsets-datacollector-jdbc-lib,streamsets-datacollector-jms-lib,streamsets-datacollector-jython_2_7-lib,streamsets-datacollector-omniture-lib,streamsets-datacollector-stats-lib
 
 USER ${SDC_USER}
 EXPOSE 18630
