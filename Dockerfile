@@ -49,8 +49,8 @@ ENV SDC_VERSION ${SDC_VERSION:-2.0.0.0}
 # Download the SDC tarball, Extract tarball and cleanup
 RUN cd /tmp && \
   curl -O -L "https://archives.streamsets.com/datacollector/${SDC_VERSION}/tarball/streamsets-datacollector-all-${SDC_VERSION}.tgz" && \
-  tar xzf "/tmp/streamsets-datacollector-core-${SDC_VERSION}.tgz" -C /opt/ && \
-  rm -rf "/tmp/streamsets-datacollector-core-${SDC_VERSION}.tgz" && \
+  tar xzf "/tmp/streamsets-datacollector-all-${SDC_VERSION}.tgz" -C /opt/ && \
+  rm -rf "/tmp/streamsets-datacollector-all-${SDC_VERSION}.tgz" && \
   mv "/opt/streamsets-datacollector-${SDC_VERSION}" "${SDC_DIST}"
 
 # Log to stdout for docker instead of sdc.log for compatibility with docker.
